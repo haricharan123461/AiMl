@@ -8,7 +8,7 @@ graph = {
     'F': []
 }
 
-def bfs(graph, start):
+def bfs(start, target):
     visited = []
     queue = [start]
 
@@ -18,6 +18,13 @@ def bfs(graph, start):
         if node not in visited:
             print(node, end=" ")
             visited.append(node)
+
+            if node == target:
+                print("\nTarget Found!")
+                return
+
             queue.extend(graph[node])
 
-bfs(graph, 'A')
+    print("\nTarget Not Found!")
+
+bfs('A', 'E')
